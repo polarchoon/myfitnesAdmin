@@ -25,7 +25,7 @@
 
   <ion-item>
     <ion-label>Category</ion-label>
-    <ion-select [(ngModel)]="classCategory" name="classCategory">
+    <ion-select [(ngModel)]="photoCategory" name="photoCategory">
       <ion-option (ionSelect)="optionCategorySelected($event)" *ngFor="let category of categories$ | async" [value]="category.name">{{category.name}}</ion-option>
     </ion-select>
   </ion-item>
