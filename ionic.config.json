@@ -1,6 +1,8 @@
 {
   "name": "myfitnessAdmin",
-  "app_id": "",
+  "app_id": "99d5c472",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

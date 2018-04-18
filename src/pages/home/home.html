@@ -1,14 +1,35 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Home</ion-title>
+    
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="md-log-out"></ion-icon>
+      </button>
+  </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+<ion-content class="card-background-page">
+
+    <ion-card>
+      <img src="assets/imgs/Penguins.jpg"/>
+      <ion-footer class="card-title">Join Now</ion-footer>
+    </ion-card>
+  
+    <ion-card (click)="goToViewClass()">
+      <img src="assets/imgs/Penguins.jpg"/>
+      <ion-footer class="card-title">Add Class</ion-footer>
+    </ion-card>
+  
+    <ion-card (click)="goToClassList()">
+      <img src="assets/imgs/Penguins.jpg"/>
+      <ion-footer class="card-title">Class Lists</ion-footer>
+    </ion-card>
+  
+    <ion-card (click)="goToGallery()">
+      <img src="assets/imgs/Penguins.jpg"/>
+      <ion-footer class="card-title">Gallery</ion-footer>
+    </ion-card>
+  
+  </ion-content>

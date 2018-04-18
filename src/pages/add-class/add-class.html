@@ -1,0 +1,69 @@
+<!--
+  Generated template for the AddClassPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Add Class</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list padding>
+    <!-- title -->
+    <ion-item>
+      <ion-input type="text" placeholder="Title" [(ngModel)]="classTitle" name="classTitle"></ion-input>
+    </ion-item>
+
+    <!-- trainer -->
+    <ion-item>
+      <ion-input type="text" placeholder="Trainer" [(ngModel)]="classTrainer" name="classTrainer"></ion-input>
+    </ion-item>
+
+
+    <!-- category select -->
+    <ion-item>
+      <ion-label>Category</ion-label>
+      <ion-select [(ngModel)]="classCategory" name="classCategory">
+        <ion-option (ionSelect)="optionCategorySelected($event)" *ngFor="let category of categories$ | async" [value]="category.name">{{category.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- notes -->
+    <ion-item>
+      <ion-textarea placeholder="Notes" [(ngModel)]="classNote" name="classNote" rows="2"></ion-textarea>
+    </ion-item>
+
+
+    <!-- start time -->
+    <ion-item>
+      <ion-label>Start</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" pickerFormat="DD/MM/YYYY HH:mm" [(ngModel)]="classStart" [min]="minDate" name="classStart"></ion-datetime>
+    </ion-item>
+
+    <!-- end time -->
+    <ion-item>
+      <ion-label>End</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" pickerFormat="DD/MM/YYYY HH:mm" [(ngModel)]="classEnd" [min]="minDate" name="classEnd"></ion-datetime>
+    </ion-item>
+
+    <!-- room select -->
+    <ion-item>
+      <ion-label>Select Room</ion-label>
+      <ion-select [(ngModel)]="classRoom" name="classRoom">
+        <ion-option (ionSelect)="optionRoomSelected($event)" *ngFor="let room of rooms$ | async" [value]="room.name">{{room.name}} </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- add button -->
+    <button ion-button block icon-left (click)="addClass(classTitle, classTrainer,classCategory, classNote, classStart, classEnd, classRoom)">
+      <ion-icon name="checkmark"></ion-icon> Add Class
+    </button>
+  </ion-list>
+
+</ion-content>
