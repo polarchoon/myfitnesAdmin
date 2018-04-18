@@ -33,7 +33,7 @@ export class AddGalleryPage {
     console.log('ionViewDidLoad AddGalleryPage');
   }
 
-  AddPic(photoName: string, photoCategory:string,Picture: string){
+  AddPicture(photoName: string, photoCategory:string,Picture: string){
     this.photoProvider.AddPicture(photoName, photoCategory,this.Picture);
     this.navCtrl.pop()
   }
