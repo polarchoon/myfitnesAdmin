@@ -40,14 +40,17 @@ export class AddGalleryPage {
 
   takePicture(){
     this.camera.getPicture({
-      quality : 95,
-      destinationType : this.camera.DestinationType.DATA_URL,
-      sourceType : this.camera.PictureSourceType.CAMERA,
-      allowEdit : true,
+      // quality : 95,
+      // destinationType : this.camera.DestinationType.DATA_URL,
+      // sourceType : this.camera.PictureSourceType.CAMERA,
+      // allowEdit : true,
+      // encodingType: this.camera.EncodingType.JPEG,
+      // targetWidth: 500,
+      // targetHeight: 500,
+      // saveToPhotoAlbum: true
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      targetWidth: 500,
-      targetHeight: 500,
-      saveToPhotoAlbum: true
+      mediaType: this.camera.MediaType.PICTURE
     }).then(imageData => {
        // imageData is a base64 encoded string
       this.base64Image = "data:image/jpeg;base64," + imageData;
