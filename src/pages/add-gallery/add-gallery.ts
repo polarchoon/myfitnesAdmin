@@ -33,7 +33,7 @@ export class AddGalleryPage {
     console.log('ionViewDidLoad AddGalleryPage');
   }
 
-  AddPicture(photoName: string, photoCategory:string,Picture: string){
+  AddPicture(photoName: string, photoCategory:string, Picture: string){
     this.photoProvider.AddPicture(photoName, photoCategory,this.Picture);
     this.navCtrl.pop()
   }
@@ -52,7 +52,7 @@ export class AddGalleryPage {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      saveToPhotoAlbum: true
+     
     }).then(imageData => {
        // imageData is a base64 encoded string
       this.base64Image = "data:image/jpeg;base64," + imageData;
