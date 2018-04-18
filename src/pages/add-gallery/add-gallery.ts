@@ -48,9 +48,11 @@ export class AddGalleryPage {
       // targetWidth: 500,
       // targetHeight: 500,
       // saveToPhotoAlbum: true
+      quality: 60,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      saveToPhotoAlbum: true
     }).then(imageData => {
        // imageData is a base64 encoded string
       this.base64Image = "data:image/jpeg;base64," + imageData;

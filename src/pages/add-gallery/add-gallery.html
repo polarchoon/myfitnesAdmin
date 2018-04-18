@@ -13,9 +13,7 @@
 
 <ion-content padding>
 
-  <button ion-button color="primary" block (click)="takePicture()">
-          Take a Picture
-  </button>
+  <button ion-button color="primary" block (click)="takePicture()">Take a Picture</button>
 
   <img [src]="base64Image" *ngIf="base64Image" />
 
@@ -32,7 +30,7 @@
     </ion-select>
   </ion-item>
 
-  <button ion-button block (click)=" AddPic(photoName, photoCategory, Picture);  ">
+  <button ion-button block (click)=" AddPicture(photoName, photoCategory, Picture);  ">
     Upload Photo
   </button>
   
