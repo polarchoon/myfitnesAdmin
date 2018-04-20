@@ -51,11 +51,12 @@ export class ClassPage {
           endTime: new Date(snap.val().endTime),
           room: snap.val().room
         });
+        
         return false;
       });
-
+      console.log("source " + this.eventSource);
     });
-    console.log("source " + this.eventSource);
+
 
   }
 

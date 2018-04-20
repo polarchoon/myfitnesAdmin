@@ -13,22 +13,27 @@ export class HomePage {
 
   }
 
-  logout() {
-    this.authProvider.logoutUser();
-    this.navCtrl.push("LoginPage");
-    console.log("logged out")
+  logOut(): void {
+    this.authProvider.logoutUser().then(() => {
+      this.navCtrl.setRoot("LoginPage");
+    });
   }
 
-  goToViewClass(){
+  goToViewClass() {
     this.navCtrl.push("ClassPage");
   }
 
-  goToClassList(){
+  goToClassList() {
     this.navCtrl.push("ClassListPage");
   }
 
-  goToGallery(){
+  goToGallery() {
     this.navCtrl.push("GalleryPage");
   }
+
+  goToInquiry() {
+    this.navCtrl.push("InquiryPage");
+  }
+
 
 }

@@ -10,9 +10,11 @@ import { ClassProvider } from '../providers/class/class';
 
 import { NgCalendarModule  } from 'ionic2-calendar';
 import { Camera } from '@ionic-native/camera';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 import { AuthProvider } from '../providers/auth/auth';
 import { PhotoProvider } from '../providers/photo/photo';
+import { InquiryProvider } from '../providers/inquiry/inquiry';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { PhotoProvider } from '../providers/photo/photo';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    NgCalendarModule
+    NgCalendarModule,
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -36,7 +39,8 @@ import { PhotoProvider } from '../providers/photo/photo';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ClassProvider,
     AuthProvider,
-    PhotoProvider
+    PhotoProvider,
+    InquiryProvider
   ]
 })
 export class AppModule {}

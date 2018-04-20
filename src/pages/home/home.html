@@ -3,7 +3,7 @@
     <ion-title>Home</ion-title>
     
     <ion-buttons end>
-      <button ion-button icon-only (click)="logout()">
+      <button ion-button icon-only (click)="logOut()">
         <ion-icon name="md-log-out"></ion-icon>
       </button>
   </ion-buttons>
@@ -11,25 +11,25 @@
 </ion-header>
 
 <ion-content class="card-background-page">
-
-    <ion-card>
-      <img src="assets/imgs/Penguins.jpg"/>
-      <ion-footer class="card-title">Join Now</ion-footer>
-    </ion-card>
   
     <ion-card (click)="goToViewClass()">
-      <img src="assets/imgs/Penguins.jpg"/>
+      <img src="assets/imgs/calendar.png"/>
       <ion-footer class="card-title">Add Class</ion-footer>
     </ion-card>
   
     <ion-card (click)="goToClassList()">
-      <img src="assets/imgs/Penguins.jpg"/>
+      <img src="assets/imgs/list.png"/>
       <ion-footer class="card-title">Class Lists</ion-footer>
     </ion-card>
   
     <ion-card (click)="goToGallery()">
-      <img src="assets/imgs/Penguins.jpg"/>
+      <img src="assets/imgs/gallery.png"/>
       <ion-footer class="card-title">Gallery</ion-footer>
     </ion-card>
   
+    <ion-card (click)="goToInquiry()">
+      <img src="assets/imgs/inquiry.png" />
+      <ion-footer class="card-title">Inquiry List</ion-footer>
+    </ion-card>
+
   </ion-content>

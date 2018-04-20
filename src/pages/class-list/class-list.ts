@@ -20,80 +20,84 @@ export class ClassListPage {
   public eventSource: Array<any>;
 
   categories$ = of([
-    { id: "cat1", name: "All"}, 
-    { id: "cat2", name: "Zumba" }, 
+    { id: "cat1", name: "All" },
+    { id: "cat2", name: "Zumba" },
     { id: "cat3", name: "Yoga" },
     { id: "cat4", name: "TRX" },
     { id: "cat5", name: "BodyPump" }
   ]);
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public classProvider:ClassProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public classProvider: ClassProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ClassListPage');
 
-    this.classProvider.getClassList().orderByChild("startTime").on("value", eventListSnapshot => {
+    this.classProvider.getClassList().orderByChild("startTime").on("value", classListSnapshot => {
       this.eventSource = [];
-      eventListSnapshot.forEach(snap => {
-      this.eventSource.push({
-      id: snap.key,
-      title: snap.val().title,
-      trainer:snap.val().trainer,
-      category: snap.val().category,
+      classListSnapshot.forEach(snap => {
+        this.eventSource.push({
+          id: snap.key,
+          title: snap.val().title,
+          trainer: snap.val().trainer,
+          category: snap.val().category
         });
         return false;
-        });
       });
+    });
   }
 
   optionCategorySelected($event) {
     console.log("name " + $event.name)
-    if($event.name=="All"){
-      
+    if ($event.name == "All") {
+
       //display all event
-      this.classProvider.getClassList().orderByChild("startTime").on("value", eventListSnapshot => {
+      this.classProvider.getClassList().orderByChild("startTime").on("value", classListSnapshot => {
         this.eventSource = [];
-        eventListSnapshot.forEach(snap => {
-        this.eventSource.push({
-        id: snap.key,
-        title: snap.val().title,
-        trainer: snap.val().trainer,
-        category: snap.val().category.name,
+        classListSnapshot.forEach(snap => {
+          this.eventSource.push({
+            id: snap.key,
+            title: snap.val().title,
+            trainer: snap.val().trainer,
+            category: snap.val().category
           });
           return false;
-          });
         });
-         console.log("source " + this.eventSource);
+      });
+      console.log("source " + this.eventSource);
     }
-    else{
+    else {
       //display by category
-      this.classProvider.getClassList().orderByChild("category").equalTo($event.name).on("value", eventListSnapshot => {
+      this.classProvider.getClassList().orderByChild("category").equalTo($event.name).on("value", classListSnapshot => {
         this.eventSource = [];
-        eventListSnapshot.forEach(snap => {
-        this.eventSource.push({
-        id: snap.key,
-        title: snap.val().title,
-        trainer:snap.val().trainer,
-        category: snap.val().category,
+        classListSnapshot.forEach(snap => {
+          this.eventSource.push({
+            id: snap.key,
+            title: snap.val().title,
+            trainer: snap.val().trainer,
+            category: snap.val().category
           });
           return false;
-          });
         });
+      });
     }
     console.log("category selected");
     console.log($event);
   }
 
 
-  goToClassDetail(eventId):void {
+  goToClassDetail(eventId): void {
     this.navCtrl.push('ClassDetailPage', { eventId: eventId });
-    }
+  }
 
-    deleteClass(event){
-      console.log("delete " + event);
-      this.classProvider.deleteClass(event);
-    }
+  // goToUserList(eventId): void {
+  //   this.navCtrl.push('UserClassPage', { eventId: eventId });
+  // }
+
+  deleteClass(event) {
+    console.log("delete " + event);
+    this.classProvider.deleteClass(event);
+  }
 
 
 }

@@ -30,8 +30,7 @@ export class GalleryPage {
         this.photoList.push({
           id: snap.key,
           name: snap.val().name,
-          picture: snap.val().picture,
-          category: snap.val().category
+          picture: snap.val().picture
         });
         console.log(this.photoList);
         return false

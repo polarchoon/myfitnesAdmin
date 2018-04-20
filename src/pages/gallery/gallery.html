@@ -17,19 +17,16 @@
 
   <button ion-button full (click)="goToAddPhoto();"><ion-icon ios="ios-camera" md="md-camera"></ion-icon>&nbsp;Add New Photo
  </button>
-
-  <ion-card *ngFor="let picture of photoList" >
-    <ion-item>
-      <h1>{{picture?.name}}</h1>
-      <h1>{{picture?.category}}</h1>
-        <ion-thumbnail item-left>
-          <img src={{picture?.picture}} >
-        </ion-thumbnail>    
-    </ion-item>
-  </ion-card>
   
 
-
+  <ion-card *ngFor="let picture of photoList">
+    <img src={{picture?.picture}} imageViewer/>
+    <ion-card-content>
+      <ion-card-title>
+        {{picture?.name}}
+        </ion-card-title>
+    </ion-card-content>
+  </ion-card>
 
 
 </ion-content>

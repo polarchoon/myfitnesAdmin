@@ -12,7 +12,8 @@ import firebase from 'firebase';
 export class ClassProvider {
 
   public classListRef: firebase.database.Reference;
-  public categoryListRef: firebase.database.Reference;
+  public userRef: firebase.database.Reference;
+  //public categoryListRef: firebase.database.Reference;
 
   constructor() {
     console.log('Hello ClassProvider Provider');
@@ -21,10 +22,9 @@ export class ClassProvider {
       .database()
       .ref(`/class/classList`);
 
-    this.categoryListRef = firebase
-      .database()
-      .ref(`/class/classList/category`);
-
+    this.userRef = firebase
+    .database()
+    .ref(`/userProfile/`);
   }
 
   addClass(
@@ -53,16 +53,12 @@ export class ClassProvider {
     return this.classListRef;
   }
 
-  getCategoryList(): firebase.database.Reference {
-    return this.categoryListRef;
-  }
-
   getClassDetail(classId: string): firebase.database.Reference {
     return this.classListRef.child(classId);
   }
 
-  getClassCategory(classCategory: string): firebase.database.Reference {
-    return this.classListRef.child(classCategory);
+  getUserList(): firebase.database.Reference {
+    return this.userRef;
   }
 
   deleteClass(classId) {
@@ -79,9 +75,9 @@ export class ClassProvider {
     classRoom: string
   ): Promise<any> {
 
-    let updateEventRef = firebase.database().ref(`/class/classList/` + classId);
+    let updateClassRef = firebase.database().ref(`/class/classList/` + classId);
 
-    return updateEventRef.update({
+    return updateClassRef.update({
       title: classTitle,
       trainer: classTrainer,
       category: classCategory,

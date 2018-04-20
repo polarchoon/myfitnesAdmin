@@ -42,9 +42,9 @@ export class ClassDetailPage {
 
     this.classProvider
       .getClassDetail(this.navParams.get("eventId"))
-      .on("value", eventSnapshot => {
-        this.currentClass = eventSnapshot.val();
-        this.currentClass.id = eventSnapshot.key;
+      .on("value", classSnapshot => {
+        this.currentClass = classSnapshot.val();
+        this.currentClass.id = classSnapshot.key;
       });
     console.log(this.currentClass)
 
