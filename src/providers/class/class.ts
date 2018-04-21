@@ -22,9 +22,6 @@ export class ClassProvider {
       .database()
       .ref(`/class/classList`);
 
-    this.userRef = firebase
-    .database()
-    .ref(`/userProfile/`);
   }
 
   addClass(
@@ -55,10 +52,6 @@ export class ClassProvider {
 
   getClassDetail(classId: string): firebase.database.Reference {
     return this.classListRef.child(classId);
-  }
-
-  getUserList(): firebase.database.Reference {
-    return this.userRef;
   }
 
   deleteClass(classId) {
