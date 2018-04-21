@@ -17,12 +17,6 @@ import { Camera } from '@ionic-native/camera';
 })
 export class AddGalleryPage {
 
-  categories$ = of([
-    { name: "Zumba" },
-    { name: "Yoga" },
-    { name: "TRX" },
-    { name: "BodyPump" }
-  ]);
   Picture
   base64Image
 
@@ -33,8 +27,8 @@ export class AddGalleryPage {
     console.log('ionViewDidLoad AddGalleryPage');
   }
 
-  AddPicture(photoName: string, photoCategory:string, Picture: string){
-    this.photoProvider.AddPicture(photoName, photoCategory,this.Picture);
+  AddPicture(photoName: string, Picture: string){
+    this.photoProvider.AddPicture(photoName,this.Picture);
     this.navCtrl.pop()
   }
 

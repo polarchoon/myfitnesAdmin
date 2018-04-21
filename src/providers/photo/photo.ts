@@ -23,14 +23,13 @@ export class PhotoProvider {
  //will take the image from the addphoto page, push the image to storage, and then store the downloadUrl and given name of the photo
 
 
- AddPicture(pictureName: string, pictureCategory:string, picture: string): Promise<any> {
+ AddPicture(pictureName: string,  picture: string): Promise<any> {
   firebase.storage().ref('/pictures/').child(pictureName)
   .putString(picture, 'base64', {contentType: 'image/jpeg'})
   .then((savedPicture) => {
   this.PhotoRef.push({
    picture: savedPicture.downloadURL,
-    name: pictureName,
-    category: pictureCategory
+    name: pictureName
    })
   });
   return 
