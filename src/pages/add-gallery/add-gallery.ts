@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { of } from "rxjs/observable/of";
 import { PhotoProvider } from '../../providers/photo/photo';
 import { Camera } from '@ionic-native/camera';
 /**
